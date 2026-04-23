@@ -7,12 +7,21 @@
                 <span class="btn-minimize"></span>
                 <span class="btn-maximize"></span>
             </div>
-            <div class="terminal-title">{{ .Title }}.md</div>
+            <div class="terminal-title">{{ .Title }}</div>
+        </div>
+        <div class="carousel">
+            <button class="arrow left">&#10094;</button>
+
+            <div class="carousel-track">
+                <div class="slide abtimg-1"></div>
+                <div class="slide abtimg-2"></div>
+                <div class="slide abtimg-3"></div>
+            </div>
+
+            <button class="arrow right">&#10095;</button>
         </div>
         <div class="terminal-body">
             <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat {{ .Title }}.md</span>
             </div>
             <div class="content">
                 {{ .Content }}
@@ -20,14 +29,13 @@
             
             <div class="contact-section">
                 <div class="prompt-line">
-                    <span class="prompt">$</span>
-                    <span class="command">ls -la contact/</span>
+                    <span class="command">Contact</span>
                 </div>
                 <div class="contact-grid">
                     {{ range .Site.Params.contact }}
                     <div class="contact-file">
                         <span class="file-icon">{{ .icon }}</span>
-                        <span class="file-name">{{ .name | lower }}.txt</span>
+                        <span class="file-name">{{ .name }}</span>
                         <span class="file-content">{{ .value }}</span>
                     </div>
                     {{ end }}
@@ -36,4 +44,28 @@
         </div>
     </article>
 </div>
+<script >
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-track .slide');
+    const nextBtn = document.querySelector('.arrow.right');
+    const prevBtn = document.querySelector('.arrow.left');
+
+    let index = 0;
+    function updateCarousel() {
+        const width = images[0].clientWidth;
+        track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+</script>
 {{ end }}

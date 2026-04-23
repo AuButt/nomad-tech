@@ -1,0 +1,77 @@
+{{ define "main" }}
+<div class="about-container">
+    <article class="about-content">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">Pick Some Axe</div>
+        </div>
+        <div class="carousel">
+            <button class="arrow left">&#10094;</button>
+
+            <div class="carousel-track">
+                <div class="slide img-3"></div>
+            </div>
+
+            <button class="arrow right">&#10095;</button>
+        </div>
+        <div class="terminal-body">
+            <div class="prompt-line">
+            </div>
+            <div class="content">
+                {{ .Content }}
+            </div>
+        </div>
+    </article>
+</div>
+<script>
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-track .slide');
+    const nextBtn = document.querySelector('.arrow.right');
+    const prevBtn = document.querySelector('.arrow.left');
+
+    let index = 0;
+
+    function updateCarousel() {
+        const width = images[0].clientWidth;
+        track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    // Next slide
+    function nextSlide() {
+        index = (index + 1) % images.length;
+        updateCarousel();
+    }
+
+    // Previous slide
+    function prevSlide() {
+        index = (index - 1 + images.length) % images.length;
+        updateCarousel();
+    }
+
+    // Button controls
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+    });
+
+    // Auto-slide every 20 seconds
+    let interval = setInterval(nextSlide, 15000);
+
+    // Reset timer when user interacts
+    function resetTimer() {
+        clearInterval(interval);
+        interval = setInterval(nextSlide, 15000);
+    }
+
+    window.addEventListener('resize', updateCarousel);
+</script>
+{{ end }}

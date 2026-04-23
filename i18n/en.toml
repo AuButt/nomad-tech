@@ -1,7 +1,7 @@
 [home]
 other = "Home"
 [social]
-other = "Social Media"
+other = "Hiring"
 [blog]
 other = "Blog"
 [portfolio]
@@ -29,9 +29,9 @@ other = "Travel"
 [hero_greeting]
 other = "Hi, I'm"
 [follow_social]
-other = "Follow My Social Media"
+other = "Look At My Work"
 [learn_more]
-other = "Learn More"
+other = "Who Am I?"
 [social_description]
 other = "Sharing insights and experiences across platforms, welcome to connect"
 [portfolio_title]
@@ -45,6 +45,6 @@ other = "All Categories"
 [view_posts]
 other = "View Posts"
 [contact_email]
-other = "email.txt"
+other = "email"
 [contact_wechat]
 other = "wechat.txt"
