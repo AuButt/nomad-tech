@@ -266,9 +266,9 @@ section {
   margin: 0 auto 1rem;
   font-size: 1.5rem;
   
-  &.youtube { background: linear-gradient(45deg, #ff0000, #cc0000); }
+  &.youtube { background: linear-gradient(45deg, #1e293b, #7c3aed, #ec4899); }
   &.xiaohongshu { background: linear-gradient(45deg, #ff2442, #ff6b9d); }
-  &.wechat { background: linear-gradient(45deg, #07c160, #00d4aa); }
+  &.wechat { background: linear-gradient(45deg, #276FF5, #00d4aa); }
 }
 
 .blog-post {
@@ -309,12 +309,31 @@ section {
 
 .portfolio-image {
   height: 200px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.2rem;
+}
+
+.img-1 {
+  background-image: url('../static/BurntownICON.png');
+}
+.img-2 {
+  background-image: url('../static/psICON.png');
+}
+.img-3 {
+  background-image: url('../static/axetemp.png');
+}
+.img-4 {
+  background-image: url('../static/buoyMAIN.png');
+}
+.img-5 {
+  background-image: url('../static/MetaGenICON.png');
 }
 
 .portfolio-content {

@@ -8,7 +8,7 @@
         <div class="portfolio-grid">
             {{ range .Site.Params.portfolio }}
             <div class="portfolio-item">
-                <div class="portfolio-image">{{ .icon }} {{ .type }}</div>
+                <div class="portfolio-image {{ .icon }}"></div>
                 <div class="portfolio-content">
                     <h3>{{ .title }}</h3>
                     <p>{{ .description }}</p>
