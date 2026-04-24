@@ -5,7 +5,7 @@
             <ul class="nav-links" id="nav-menu">
                 <li><a href="{{ .Site.BaseURL }}" aria-current="false">{{ i18n "home" }}</a></li>
                 <li><a href="{{ .Site.BaseURL }}portfolio/" aria-current="false">{{ i18n "portfolio" }}</a></li>
-                <li><a href="{{ .Site.BaseURL }}about/" aria-current="false">{{ i18n "about" }}</a></li>
+                <li><a href="{{ "about/" | relURL }}" aria-current="false">{{ i18n "about" }}</a></li>
                 <li><a href="{{ .Site.BaseURL }}social/" aria-current="false">{{ i18n "social" }}</a></li>
             </ul>
             <div class="lang-switcher" role="group" aria-label="Language selection">
